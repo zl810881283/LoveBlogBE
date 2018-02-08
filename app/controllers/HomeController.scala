@@ -1,7 +1,10 @@
 package controllers
 
 import javax.inject._
+
+import play.api.Logger
 import play.api.mvc._
+import play.api.libs.json.Json
 
 /**
  * This controller creates an `Action` to handle HTTP requests to the
@@ -16,8 +19,14 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
    * will be called when the application receives a `GET` request with
    * a path of `/`.
    */
-  def index = Action {
-    Ok(views.html.index("Your new application is ready."))
+  def index = Action { implicit request =>
+    val data = List(Person(1,"zl","test"),Person(1,"zl","test"),Person(1,"zl","test"),Person(1,"zl","test"))
+    Ok(Json.toJson(Person(1,"zl","test"))(Json.format[Person]))
   }
 
+}
+
+case class Person(id:Int,name:String,desc:String)
+object Person {
+  implicit val personFormat = Json.format[Person]
 }
