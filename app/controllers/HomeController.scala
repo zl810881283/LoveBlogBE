@@ -20,13 +20,9 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
    * a path of `/`.
    */
   def index = Action { implicit request =>
-    val data = List(Person(1,"zl","test"),Person(1,"zl","test"),Person(1,"zl","test"),Person(1,"zl","test"))
-    Ok(Json.toJson(Person(1,"zl","test"))(Json.format[Person]))
+    val data = Seq(Person(1,"zl","test"),Person(1,"zl","test"),Person(1,"zl","test"),Person(1,"zl","test"))
+    Ok(Json.toJson(data)(Json.format[Person]))
   }
-
 }
 
 case class Person(id:Int,name:String,desc:String)
-object Person {
-  implicit val personFormat = Json.format[Person]
-}

@@ -14,8 +14,8 @@ GET     /message                    controllers.AsyncController.message
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
 
 GET     /api/article                controllers.ArticleController.list
-GET     /api/article/:id            controllers.ArticleController.get(id)
+GET     /api/article/:id            controllers.ArticleController.get(id: Long)
 POST    /api/article                controllers.ArticleController.post
-PUT     /api/article/:id            controllers.ArticleController.put(id)
-PATCH   /api/article/:id            controllers.ArticleController.patch(id)
-DELETE  /api/article/:id            controllers.ArticleController.delete(id)
+PUT     /api/article/:id            controllers.ArticleController.put(id: Long)
+PATCH   /api/article/:id            controllers.ArticleController.patch(id: Long)
+DELETE  /api/article/:id            controllers.ArticleController.delete(id: Long)

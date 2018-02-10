@@ -9,7 +9,7 @@ import scala.concurrent.{ExecutionContext, Future}
 
 @Singleton
 class ArticleController @Inject()(cc: ControllerComponents, actorSystem: ActorSystem)(implicit exec: ExecutionContext) extends AbstractController(cc) {
-  def get(id: Int) = Action.async {
+  def get(id: Long) = Action.async {
     Future {
       Ok("get by id")
     }
@@ -27,19 +27,19 @@ class ArticleController @Inject()(cc: ControllerComponents, actorSystem: ActorSy
     }
   }
 
-  def put(id: Int) = Action.async { implicit request =>
+  def put(id: Long) = Action.async { implicit request =>
     Future {
       Ok("put")
     }
   }
 
-  def patch(id: Int) = Action.async { implicit request =>
+  def patch(id: Long) = Action.async { implicit request =>
     Future {
       Ok("patch")
     }
   }
 
-  def delete(id: Int) = Action.async { implicit request =>
+  def delete(id: Long) = Action.async { implicit request =>
     Future {
       Ok("delete")
     }
